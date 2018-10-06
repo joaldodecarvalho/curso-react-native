@@ -1,12 +1,12 @@
 import allTweets from './tweets';
-import {getCurrentUser} from './UserService'
+import { getCurrentUser } from './UserService'
 
 const MAX_TIMEOUT = 1500;
 const MIN_TIMEOUT = 0;
 
 
 function uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         const r = Math.random() * 16 | 0;
         const v = c === 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
@@ -32,7 +32,6 @@ const newTweet = async (content) => {
                 authorName: currentUser.displayName,
                 authorUserName: currentUser.userName,
                 authorPhotoURL: currentUser.photoURL,
-
             };
 
             allTweets.unshift(parsedTweet);

@@ -4,35 +4,36 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import PerfilScreen from '../screens/PerfilScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import Colors from '../constants/Colors';
+
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
 }, {
-  navigationOptions: {
+    navigationOptions: {
       headerStyle: {
-          backgroundColor: Colors.tintColor
+        backgroundColor: Colors.tintColor
       },
       headerTintColor: 'white'
-  }
-});
+    }
+  });
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-          name={Platform.OS === 'ios' ? `ios-home${focused ? '' : '-outline'}` : 'md-home'}
+      name={Platform.OS === 'ios' ? `ios-home${focused ? '' : '-outline'}` : 'md-home'}
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const PerfilStack = createStackNavigator({
+  Perfil: PerfilScreen,
 });
 
-LinksStack.navigationOptions = {
+PerfilStack.navigationOptions = {
   tabBarLabel: 'Perfil',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -47,7 +48,7 @@ const SettingsStack = createStackNavigator({
 });
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+  tabBarLabel: 'Configuração',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -58,6 +59,6 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  PerfilStack,
   SettingsStack,
 });
